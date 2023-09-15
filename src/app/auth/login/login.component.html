@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="spContainer mx-auto">
+        <div class="card px-4 py-5 border-0 shadow">
+          <div class="d-inline text-left mb-3">
+            <h3 class="font-weight-bold">Login</h3>
+            <p>Access the most popular project management app in indonesia !</p>
+          </div>
+
+          <form [formGroup]="loginForm" (ngSubmit)="sendForm(loginForm.value)" autocomplete="on">
+
+            <div class="d-inline text-center mb-0">
+                <div class="form-group mx-auto">
+                  <input class="form-control inpSp" formControlName="email" type="text" placeholder="Email">
+                </div>
+              </div>
+              <div class="d-inline text-center mb-3">
+                <div class="form-group mx-auto">
+                  <input class="form-control inpSp" formControlName="password" type="password" placeholder="Password">
+                </div>
+              </div>
+
+              <!-- <ngx-recaptcha2 #captchaElem formControlName="captcha" [siteKey]="recaptcha"></ngx-recaptcha2> -->
+       
+          <div class="d-inline text-left mb-3 mt-4">
+            <div class="form-group d-flex justify-content-around mt-3">
+              <button class="btn btn-primary" type="submit">Login</button>
+              <a class="small text-black-50 pl-2 me-2 border-left" data-bs-toggle="modal" data-bs-target="#exampleModal">Forgot Password ?</a>
+            </div>
+          </div>
+
+
+        </form>
+
+            <div class="d-inline text-left mt-3">
+            <div class="form-group mx-auto mb-0">
+              <a class="text-black font-weight-bold regStr" routerLink="/seller/auth/register">Register new account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Forgot password</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form #forgotEmail="ngForm">
+      <div class="modal-body">
+        
+          <input type="text" placeholder="Enter email" [(ngModel)]="forgotData" name="forgotData">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="send()">Save changes</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
