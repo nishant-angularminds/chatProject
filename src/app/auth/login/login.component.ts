@@ -23,15 +23,11 @@ export class LoginComponent {
 
   sendForm(data: any) {
 
-    console.log(data);
-
     this.service.login(`/auth/login?captcha=false`, data).subscribe({
       next: (data: any) => {
 
-        debugger;
-        console.log(data);
-
-        localStorage.setItem('sellerToken', data['userToken'])
+        localStorage.setItem('currentLoginUserId', data['user']['_id']);
+        localStorage.setItem('token', data['userToken'])
         this.route.navigateByUrl('/chat');
       }
     })
@@ -40,16 +36,11 @@ export class LoginComponent {
 
   resolved(event: any) {
 
-    console.log(event);
-
   }
 
   send() {
 
-    console.log(this.forgotData);
     this.service.login('/auth/forgot-password', { email: this.forgotData }).subscribe((data) => {
-
-      console.log(data);
 
     })
   }

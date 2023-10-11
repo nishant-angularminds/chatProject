@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './chat.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,10 @@ import { ChatComponent } from './chat.component';
   ],
   imports: [
     CommonModule,
-    ChatRoutingModule
+    ChatRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgSelectModule
   ]
 })
 export class ChatModule { }

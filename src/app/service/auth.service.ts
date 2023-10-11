@@ -1,3 +1,4 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { baseUrl } from 'src/environment/environment';
@@ -16,6 +17,8 @@ export class AuthService {
 
   register(normalUrl: any, payload: any) {
 
+    console.log(`${baseUrl}${normalUrl}`);
+    
     return this.http.post(`${baseUrl}${normalUrl}`, payload);
 
   }

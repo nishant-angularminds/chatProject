@@ -21,23 +21,19 @@ export class RegisterComponent {
     name: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
-    companyName: ['', Validators.required]  })
+    companyName: ['', Validators.required]
+  })
 
   constructor(private fb: FormBuilder, private service: AuthService, private router: Router, private tostr: HotToastService) {
   }
 
   sendForm(formData: any) {
 
-    console.log(formData)
-
     this.isValid = true;
     this.status = false
     this.service.register(`/auth/register?captcha=false`, formData).subscribe({
       next: (data) => {
-        console.log(data);
-
-        this.tostr.success('Register successfully');
-        this.router.navigateByUrl('/seller/auth/login');
+        this.router.navigateByUrl('/auth/login');
       }
     })
 
